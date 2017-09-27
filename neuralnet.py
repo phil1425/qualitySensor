@@ -14,15 +14,16 @@ augmentation.add_random_rotation(180)
 
 network = input_data(shape=[None, 640, 480, 3], data_augmentation=augmentation)
 
-network = conv_2d(network, 16, 5, strides=2, activation='relu', name = 'conv1')
+network = conv_2d(network, 4, 5, strides=2, activation='relu', name = 'conv1')
 network = max_pool_2d(network, 2, strides=2)
-network = conv_2d(network, 16, 5, strides=1, activation='relu', name = 'conv2')
-network = conv_2d(network, 32, 3, strides=1, activation='relu', name = 'conv3')
+network = conv_2d(network, 4, 5, strides=1, activation='relu', name = 'conv2')
+network = max_pool_2d(network, 2, strides=2)
+network = conv_2d(network, 4, 3, strides=1, activation='relu', name = 'conv3')
 network = max_pool_2d(network, 2, strides=2)
 
-network = fully_connected(network, 256, activation='tanh')
-network = dropout(network, 0.5)
 network = fully_connected(network, 128, activation='tanh')
+network = dropout(network, 0.5)
+network = fully_connected(network, 64, activation='tanh')
 network = dropout(network, 0.5)
 
 network = fully_connected(network, 2, activation='softmax')

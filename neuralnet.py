@@ -10,7 +10,7 @@ acc = Accuracy()
 
 augmentation = ImageAugmentation()
 augmentation.add_random_blur()
-augmentation.add_random_crop((600,400))
+augmentation.add_random_crop((600,440), 40)
 augmentation.add_random_rotation(180)
 
 network = input_data(shape=[None, 640, 480, 3], data_augmentation=augmentation)

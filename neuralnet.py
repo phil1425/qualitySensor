@@ -4,7 +4,7 @@ from tflearn.layers.core import input_data, dropout, fully_connected, reshape
 from tflearn.layers.conv import conv_2d, max_pool_2d
 from tflearn.layers.estimator import regression
 from tflearn.metrics import Accuracy
-from tflearn.data_augmentation import ImageAugmentation,
+from tflearn.data_augmentation import ImageAugmentation
 
 acc = Accuracy()
 

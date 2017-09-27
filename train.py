@@ -26,7 +26,7 @@ model = net.model
 
 model.fit(np.array(X),np.array(Y),
             n_epoch=epochs,
-            batch_size=16
+            batch_size=16,
             validation_set=(np.array(val_X),np.array(val_Y)),
             show_metric=True,
             run_id="deep_nn")

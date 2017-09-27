@@ -24,9 +24,9 @@ val_X, val_Y = image_preloader('sleevesPhotos/validation',
                                 normalize=True)
 model = net.model
 
-model.fit(X,Y,
+model.fit(np.array(X),np.array(Y),
             n_epoch=epochs,
-            validation_set=(val_X,val_Y),
+            validation_set=(np.array(val_X),np.array(val_Y)),
             show_metric=True,
             run_id="deep_nn")
 

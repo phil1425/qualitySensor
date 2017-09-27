@@ -4,10 +4,16 @@ from tflearn.layers.core import input_data, dropout, fully_connected, reshape
 from tflearn.layers.conv import conv_2d, max_pool_2d
 from tflearn.layers.estimator import regression
 from tflearn.metrics import Accuracy
+from tflearn.data_augmentation import ImageAugmentation,
 
 acc = Accuracy()
 
-network = input_data(shape=[None, 640, 480, 3])
+augmentation = ImageAugmentation()
+augmentation.add_random_blur()
+augmentation.add_random_crop((600,400))
+augmentation.add_random_rotation(-180,180)
+
+network = input_data(shape=[None, 640, 480, 3], data_augmentation=augmentation)
 
 network = conv_2d(network, 4, 5, strides=2, activation='relu', name = 'conv1')
 network = max_pool_2d(network, 2, strides=2)

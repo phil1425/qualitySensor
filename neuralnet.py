@@ -12,9 +12,6 @@ augmentation = ImageAugmentation()
 augmentation.add_random_blur()
 augmentation.add_random_rotation(180)
 
-preprocessing = DataPreprocessing()
-preprocessing.add
-
 network = input_data(shape=[None, 640, 480, 3], data_augmentation=augmentation)
 
 network = conv_2d(network, 4, 5, strides=2, activation='relu', name = 'conv1')
